@@ -1,0 +1,14 @@
+<div class="row mt-4">
+    <div class="col-md-12">
+        <label for="checkButton">Type in your password to check if is it safe!</label>
+        <input type="password" id="checkButtonInput" class="form-control mb-2" spellcheck="false" [formControl]="passwordCheckInput">
+        <button id="checkButton" type="button" class="btn btn-lg btn-block btn-custom" (click)="Check()">Check</button>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="alertSection" *ngFor="let alert of alertContainer">
+            <div class="alert alert-{{ alert.type }}" role="alert">{{ alert.message }}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+body {
+    background-color: #e4e3e3 !important;
+}
+
+h1 {
+    font-family: 'ABeeZee', sans-serif !important; 
+    color: #3b6978 !important;
+}
+
+p {
+    font-family: 'ABeeZee', sans-serif !important;
+    color: #84a9ac !important;
+    text-align: center !important;
+}
+
+label {
+    font-family: 'ABeeZee', sans-serif !important;
+    color: #84a9ac !important;
+}
+
+.container {
+    max-width: 55%;
+}
+
+.btn-custom, .btn-custom:active, .btn-custom:focus, .btn-custom:visited, .btn-success:active:focus {
+    font-family: 'ABeeZee', sans-serif !important;
+    color: #e4e3e3 !important;
+    background-color: #3b6978 !important;
+    border-color: #84a9ac !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-custom:hover, .btn-success:active:focus:hover {
+    background-color: #84a9ac !important;
+    border-color: #3b6978 !important;
+}
+
+.form-control {
+    font-family: 'ABeeZee', sans-serif !important;
+    color: #84a9ac !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+
+.form-control:focus {
+    border-color: #84a9ac !important;
+}
+
+.alert {
+    font-family: 'ABeeZee', sans-serif !important;
+}

@@ -1,0 +1,7 @@
+<div class="row mt-3">
+    <div class="col-md-12">
+        <label for="generateButton">Click the button to generate a safe password!</label>
+        <button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block btn-custom" (click)="generatePassword()">Generate</button>
+        <input type="text" id="generateButtonInput" class="form-control mt-2" spellcheck="false" [formControl]="passwordGenerateInput">
+    </div>
+</div>
