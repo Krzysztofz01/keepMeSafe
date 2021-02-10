@@ -2,6 +2,7 @@
     <div class="col-md-12">
         <label for="generateButton">Click the button to generate a safe password!</label>
         <button id="generateButton" type="button" class="btn btn-primary btn-lg btn-block btn-custom" (click)="generatePassword()">Generate</button>
-        <input type="text" id="generateButtonInput" class="form-control mt-2" spellcheck="false" [formControl]="passwordGenerateInput">
+        <p *ngIf="valueCopied" class="my-1">Password copied to clipboard!</p>
+        <input type="text" id="generateButtonInput" class="form-control mt-2" spellcheck="false" [formControl]="passwordGenerateInput" (click)="copyToClipboard()">
     </div>
 </div>

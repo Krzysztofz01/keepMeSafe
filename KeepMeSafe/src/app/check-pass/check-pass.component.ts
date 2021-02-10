@@ -26,7 +26,7 @@ export class CheckPassComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public Check = (): void => {
+  public Check(): void {
     this.alertContainer = [];
     const results = this.passwordCheckerService.Check(this.passwordCheckInput.value);
 
@@ -39,9 +39,11 @@ export class CheckPassComponent implements OnInit {
     }
     if(!results.special) this.alertContainer.push(this.Alerts.special);
 
-    //Other services
-
     if(this.alertContainer.length == 0) this.alertContainer.push(this.Alerts.ok);
+  }
+
+  public clear(): void {
+    this.passwordCheckInput.setValue("");
   }
 
 }

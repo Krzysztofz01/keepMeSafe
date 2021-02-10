@@ -1,21 +1,38 @@
 <div class="container text-center">
   <div class="row mt-4">
       <div class="col-md-12">
-          <h1>
-              KeepMeSafe
-          </h1>
-          <p>
-              Are you worried about the security of your online accounts?
-              With this application you can check the security of your passwords. 
-              Check if it has the right number and combinations of characters and 
-              thanks to the external API, you can check if your password has ever leaked 
-              from any database. If necessary, you can generate a new, secure 
-              password that meets all the requirements, and stafy safe.
-          </p>
-          <p>      
-              According to Kaspersky's password tester, KeepMeSafe-generated password 
-              cracks would take 10,000+ centuries! That's a huge amount of time ;)
-          </p>
+          <h1>KeepMeSafe</h1>
+          <div class="d-md-none">
+            <button class="btn btn-primary btn-lg btn-block btn-custom" type="button" data-toggle="collapse" data-target="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">Informations</button>
+            <div class="collapse my-2" id="collapseInfo">
+                <p>
+                    Are you worried about the security of your online accounts?
+                    With this application you can check the security of your passwords. 
+                    Check if it has the right number and combinations of characters and 
+                    thanks to the external API, you can check if your password has ever leaked 
+                    from any database. If necessary, you can generate a new, secure 
+                    password that meets all the requirements, and stafy safe.
+                </p>
+                <p>      
+                    According to Kaspersky's password tester, KeepMeSafe-generated password 
+                    cracks would take 10,000+ centuries! That's a huge amount of time ;)
+                </p>
+            </div>
+          </div>
+          <div class="d-none d-md-block">
+            <p>
+                Are you worried about the security of your online accounts?
+                With this application you can check the security of your passwords. 
+                Check if it has the right number and combinations of characters and 
+                thanks to the external API, you can check if your password has ever leaked 
+                from any database. If necessary, you can generate a new, secure 
+                password that meets all the requirements, and stafy safe.
+            </p>
+            <p>      
+                According to Kaspersky's password tester, KeepMeSafe-generated password 
+                cracks would take 10,000+ centuries! That's a huge amount of time ;)
+            </p>
+          </div>
       </div>
   </div>
   <generate-pass></generate-pass>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-
+import { ClipboardModule } from 'ngx-clipboard';
 import { AppComponent } from './app.component';
 import { GeneratePassComponent } from './generate-pass/generate-pass.component';
 import { CheckPassComponent } from './check-pass/check-pass.component';
@@ -16,7 +16,8 @@ import { PasswordCheckerService } from './services/password-checker.service';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule
   ],
   providers: [
     PasswordGeneratorService,

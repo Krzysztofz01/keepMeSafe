@@ -1,7 +1,7 @@
 <div class="row mt-4">
     <div class="col-md-12">
         <label for="checkButton">Type in your password to check if is it safe!</label>
-        <input type="password" id="checkButtonInput" class="form-control mb-2" spellcheck="false" [formControl]="passwordCheckInput">
+        <input type="password" id="checkButtonInput" class="form-control mb-2" spellcheck="false" [formControl]="passwordCheckInput" (click)="clear()">
         <button id="checkButton" type="button" class="btn btn-lg btn-block btn-custom" (click)="Check()">Check</button>
     </div>
 </div>

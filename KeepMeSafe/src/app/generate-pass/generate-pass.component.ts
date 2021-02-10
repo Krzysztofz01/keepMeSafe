@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ClipboardService } from 'ngx-clipboard';
 import { PasswordGeneratorService } from '../services/password-generator.service';
 
 @Component({
@@ -7,14 +8,24 @@ import { PasswordGeneratorService } from '../services/password-generator.service
   templateUrl: './generate-pass.component.html',
   styleUrls: ['./generate-pass.component.css']
 })
-export class GeneratePassComponent implements OnInit {
+export class GeneratePassComponent {
   passwordGenerateInput = new FormControl('');
+  private passwordValue: string = "";
+  public valueCopied: boolean = false;
 
-  constructor(private passwordGeneratorService: PasswordGeneratorService) { }
+  constructor(private passwordGeneratorService: PasswordGeneratorService, private clipboardService: ClipboardService) { }
 
-  ngOnInit(): void { }
+  public generatePassword(): void {
+    this.passwordValue = this.passwordGeneratorService.Generate();
+    this.passwordGenerateInput.setValue(this.passwordValue);
+    this.valueCopied = false;
+  }
 
-  public generatePassword = (): void => {
-    this.passwordGenerateInput.setValue(this.passwordGeneratorService.Generate());
+  public copyToClipboard(): void {
+    if(this.passwordValue.length > 0) {
+      this.clipboardService.copy(this.passwordValue);
+      console.log(this.passwordValue);
+      this.valueCopied = true;
+    }
   }
 }

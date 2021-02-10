@@ -51,3 +51,7 @@ label {
 .alert {
     font-family: 'ABeeZee', sans-serif !important;
 }
+
+#generateButtonInput {
+    cursor: pointer;
+}
