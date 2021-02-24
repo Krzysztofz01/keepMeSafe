@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PasswordCheckerService } from '../services/password-checker.service';
+import { WordlistCheckerService } from '../services/wordlist-checker.service';
 
 @Component({
   selector: 'check-pass',
@@ -22,7 +23,7 @@ export class CheckPassComponent implements OnInit {
   passwordCheckInput = new FormControl("");
   alertContainer: Alert[];
 
-  constructor(private passwordCheckerService: PasswordCheckerService) { }
+  constructor(private passwordCheckerService: PasswordCheckerService, private wordlistCheckerService: WordlistCheckerService) { }
 
   ngOnInit(): void { }
 
@@ -30,6 +31,7 @@ export class CheckPassComponent implements OnInit {
     this.alertContainer = [];
     const results = this.passwordCheckerService.Check(this.passwordCheckInput.value);
 
+    // ALGORITHM CHECK
     if(!results.length) this.alertContainer.push(this.Alerts.length);
     if(!results.digits) this.alertContainer.push(this.Alerts.digits);
     if(!results.chars) {
@@ -38,6 +40,21 @@ export class CheckPassComponent implements OnInit {
       if(!results.case) this.alertContainer.push(this.Alerts.case);
     }
     if(!results.special) this.alertContainer.push(this.Alerts.special);
+
+    // WORDLIST CHECK
+    this.wordlistCheckerService.GetCombinations()
+      .subscribe((response) => {
+        if(response.includes(this.passwordCheckInput.value)) {
+          this.alertContainer.push(this.Alerts.leak);
+        } else {
+          this.wordlistCheckerService.GetPopular()
+            .subscribe((response) => {
+              if(response.includes(this.passwordCheckInput.value)) {
+                this.alertContainer.push(this.Alerts.leak);
+              }
+            });
+        }
+      });
 
     if(this.alertContainer.length == 0) this.alertContainer.push(this.Alerts.ok);
   }

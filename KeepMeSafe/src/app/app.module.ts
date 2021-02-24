@@ -7,6 +7,7 @@ import { GeneratePassComponent } from './generate-pass/generate-pass.component';
 import { CheckPassComponent } from './check-pass/check-pass.component';
 import { PasswordGeneratorService } from './services/password-generator.service';
 import { PasswordCheckerService } from './services/password-checker.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PasswordCheckerService } from './services/password-checker.service';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    ClipboardModule
+    ClipboardModule,
+    HttpClientModule
   ],
   providers: [
     PasswordGeneratorService,
