@@ -24,7 +24,6 @@ export class GeneratePassComponent {
   public copyToClipboard(): void {
     if(this.passwordValue.length > 0) {
       this.clipboardService.copy(this.passwordValue);
-      console.log(this.passwordValue);
       this.valueCopied = true;
     }
   }

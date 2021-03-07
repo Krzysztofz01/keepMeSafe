@@ -11,7 +11,7 @@ export class PasswordGeneratorService {
 
   constructor() { }
 
-  Generate = () : string => {
+  public Generate() : string {
     let password: string = '';
 
     for(let i=0; i<5; i++) password = password.concat(this.alphaCharsLowercase.charAt(this.Random(this.alphaCharsLowercase.length)).toString()); 
@@ -22,9 +22,11 @@ export class PasswordGeneratorService {
     return this.Shuffle(password);
   }
   
-  private Random = (max: number) : number => { return Math.floor(Math.random() * max); }
+  private Random(max: number) : number {
+    return Math.floor(Math.random() * max);
+  }
 
-  private Shuffle = (a: string) : string => {
+  private Shuffle(a: string) : string {
     let letterArray = a.split('');
     let length = a.length;
 

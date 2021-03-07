@@ -8,7 +8,7 @@ export class PasswordCheckerService {
 
   constructor() { }
 
-  Check = (password: string) : ICheckResults => {
+  public Check(password: string) : ICheckResults {
     const checkObject: ICheckResults = {
       length: false,
       digits: false,
@@ -28,12 +28,12 @@ export class PasswordCheckerService {
     return checkObject;
   }
 
-  private CheckLength = (password: string) : boolean => {
+  private CheckLength(password: string) : boolean {
     if(password.length < 15) return false;
     return true
   }
 
-  private CheckCase = (password: string) : boolean => {
+  private CheckCase(password: string) : boolean {
     const lowercase: RegExp = /.*[a-z]+.*/;
     const uppercase: RegExp = /.*[A-Z]+.*/;
 
@@ -41,21 +41,21 @@ export class PasswordCheckerService {
     return false;
   }
 
-  private CheckSpecialChar = (password: string) : boolean => {
+  private CheckSpecialChar(password: string) : boolean {
     const specialChar: RegExp = /.*[!@#$%^&*£-]+.*/;
 
     if(specialChar.test(password)) return true;
     return false;
   }
 
-  private CheckAnyDigits = (password: string) : boolean => {
+  private CheckAnyDigits(password: string) : boolean {
     const digits: RegExp = /.*[0-9]+.*/;
 
     if(digits.test(password)) return true;
     return false;
   }
 
-  private CheckAnyChars = (password: string) : boolean => {
+  private CheckAnyChars(password: string) : boolean {
     const chars: RegExp = /.*[a-z]+|[A-Z]+.*/;
 
     if(chars.test(password)) return true;

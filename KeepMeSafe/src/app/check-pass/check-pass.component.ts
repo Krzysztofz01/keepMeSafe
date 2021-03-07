@@ -8,7 +8,7 @@ import { WordlistCheckerService } from '../services/wordlist-checker.service';
   templateUrl: './check-pass.component.html',
   styleUrls: ['./check-pass.component.css']
 })
-export class CheckPassComponent implements OnInit {
+export class CheckPassComponent {
   private Alerts: any = {
     length: new Alert("You'r password length is too short", "danger"),
     digits: new Alert("You have no digits in your password!", "danger"),
@@ -18,14 +18,12 @@ export class CheckPassComponent implements OnInit {
     leak: new Alert("You'r password was leaked during a database leak!", "danger"),
     external: new Alert("The XYZ algorith says that your password is too weak!", "danger"),
     ok: new Alert("Your password is secure. Congratulations!", "success")
-  }
+  };
 
   passwordCheckInput = new FormControl("");
   alertContainer: Alert[];
 
   constructor(private passwordCheckerService: PasswordCheckerService, private wordlistCheckerService: WordlistCheckerService) { }
-
-  ngOnInit(): void { }
 
   public Check(): void {
     this.alertContainer = [];
